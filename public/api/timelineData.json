@@ -1,0 +1,32 @@
+[
+    {
+        "title": "first",
+        "date": "2014",
+        "description": "Prima Assicurazioni was established in Milan"
+    },
+    {
+        "title": "second",
+        "date": "2015",
+        "description": "Online sales begin"
+    },
+    {
+        "title": "third",
+        "date": "2018",
+        "description": "In the summer of 2018, the largest venture capital financing round in Italy closes. An increase of 100 million euros, which saw as subscribers the investment bank Goldman Sachs and the private equity fund Blackstone Group."
+    },
+    {
+        "title": "fourth",
+        "date": "2019",
+        "description": "Prima Assicurazioni began collaborating with brokers and agents , and became the official partner and back-shirt sponsor of the Serie A football club ACF Fiorentina for three years starting from the 2019-2020 season"
+    },
+    {
+        "title": "fifth",
+        "date": "2020",
+        "description": "A new office opens in Rome. The tech company had 1.1 million customers. "
+    },
+    {
+        "title": "sixth",
+        "date": "2021",
+        "description": "Prima Assicurazioni grows in the market"
+    }
+]
