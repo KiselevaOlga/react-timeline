@@ -1,0 +1,284 @@
+:root{
+    --main-bg-color: #F7F7F7;
+    --dominant-color: gray;
+    --accent-color: #B462D7;
+    --compliment-color: #21C7A7;
+    --font-color: #343A4B;
+    --large-font: 1.5em;
+    --standart-font: 1.2em;
+    --small-font: 1em;
+}
+
+body{
+    box-sizing: border-box;
+    background-color: var(--main-bg-color);
+}
+
+/* PAGE CONTAINER */
+
+main{
+    font-family: Helvetica, Verdana, sans-serif;
+    margin: 0;
+}
+.main-header{
+    text-align: center;
+}
+.main-title{
+    color: var(--accent-color);
+}
+.main-subtitle{
+    color: var(--font-color);
+}
+/* PAGE CONTAINER */
+
+/* TIMELINE MAIN CONTAINER */
+
+.main-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    place-content: center; /* first element starts from the middle of the page*/
+    min-height: 100vh;
+    position: relative;
+    margin: 0px 30px;
+    background-image: url('https://www.prima.it/frontale/images/home/podio.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.main-container::after{
+    content: '';
+    background-color: var(--accent-color);
+    position: absolute;
+    left: calc(50% - 2px);
+    width: 4px;
+    height: 100%;
+}
+/* TIMELINE MAIN CONTAINER */
+
+/* TIMELINE ITEM CONTAINER */
+
+.item-holder{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    animation: slideDown 1s;
+    position: relative;
+    border-radius: 15px;
+    color: var(--font-color);
+    /* aspect-ratio: 30 / 10; */
+}
+
+
+.item-holder-even{
+    align-self: flex-start;
+    align-items: flex-end;
+    text-align: right;
+    margin-right: 2%;
+    background: var(--main-bg-color);
+    border: 4px solid var(--accent-color);
+}
+
+.item-holder-odd{
+    align-self: flex-end;
+    align-items: flex-start;
+    text-align: left;
+    margin-left: 2%;
+    background: var(--main-bg-color);
+    border: 4px solid var(--compliment-color);
+}
+
+/* circles and arrow */
+.item-holder-even::before,
+.item-holder-even::after,
+.item-holder-odd::before,
+.item-holder-odd::after {
+    content: '';
+    position: absolute;
+    z-index: 5;
+    width: 20px;
+    height: 20px;
+    top: calc(50% - 10px);
+} 
+
+.item-holder-even::after{
+    background: var(--accent-color);
+    clip-path: polygon(0 100%, 100% 50%, 0 0);
+    right: -20px;
+}
+
+.item-holder-odd::after{
+    background: var(--compliment-color);
+    clip-path: polygon(0 50%, 100% 100%, 100% 0);
+    left: -20px;
+}
+
+.item-holder-even::before{
+    background: var(--accent-color);
+    border: 3px solid var(--compliment-color);
+    right: calc(-10.5% - 13px);
+    border-radius: 50%;
+}
+
+.item-holder-odd::before{
+    background: var(--compliment-color);
+    border: 3px solid var(--accent-color);
+    left: calc(-10.5% - 13px);
+    border-radius: 50%;
+}
+/* circles and arrow */
+
+/* timeline item header */
+.item-header{
+    display: flex;
+    flex-direction: row;
+    column-gap: 2em;
+    width: 100%;
+    height: 50px;
+    transition: all 150ms ease-in-out;
+    position: relative;
+}
+.item-header > *{
+    z-index: 1000;
+}
+.item-holder-even .item-header::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--accent-color);
+    transform: scaleX(0);
+    transform-origin: right;
+    -webkit-transition: transform 250ms ease-in;
+    transition: transform 250ms ease-in;
+}
+.item-holder-odd .item-header::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--compliment-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    -webkit-transition: transform 250ms ease-in;
+    transition: transform 250ms ease-in;
+}
+.item-header:hover::after{
+    transform: scaleX(1);
+}
+.item-holder-even .item-header{
+    flex-direction: row-reverse;
+}
+
+.item-time{
+    place-self: center;
+    padding: 0 10px;
+    font-size:var(--large-font);
+}
+
+.small-header{ 
+    place-self: center;
+    font-size: var(--large-font);
+    text-transform: capitalize;
+}
+/* timeline item header */
+/* timeline item info */
+.item-info {
+    padding: 0 20px;
+}
+.more-info{
+    position: relative;
+    padding: 10px 20px;
+    margin: 0 10px;
+    text-decoration: none;
+    color: var(--font-color);
+    font-size: var(--standart-font);
+}
+
+.more-info::after{
+    content: '';
+    position: absolute;
+    bottom: 15px;
+    width: 10px;
+    height: 10px;
+    border-right: 4px solid var(--accent-color);
+    border-top: 4px solid var(--accent-color);
+    transform: rotate(45deg);
+    -webkit-transition: 150ms ease-in;
+    transition: 150ms ease-in;
+}
+.more-info:hover, .more-info:hover::after{
+    margin-left: 10px;
+    text-decoration: underline;
+}
+/* timeline item info */
+/* TIMELINE ITEM CONTAINER */
+
+@media only screen and (max-width: 801px){
+    .main-container{
+        margin: 0px 5px 0px 12px;
+    }
+    .main-container::after{
+        left: 0;
+    }
+    .item-holder{
+        width: 80%;
+    }
+    .item-holder-even{
+        align-self: center;
+        align-items: flex-start;
+        text-align: left;
+        margin: 0;
+    }
+    .item-holder-odd{
+        align-self: center;
+        margin: 0;
+    }
+    .item-holder-even::after{
+        clip-path: polygon(0 50%, 100% 100%, 100% 0);
+        left: -20px;
+    }
+    /* circles */
+    .item-holder-even::before{
+        left: calc(-12% - 13px);  
+    }
+    .item-holder-odd::before{
+        left: calc(-12% - 13px);
+    }
+    /* circles */
+    .item-time{
+        padding: 0 20px;
+    }
+    .item-header{
+        column-gap: 0em;
+        height: 45px;
+    }
+    .item-header > *{
+        font-size: var(--standart-font);
+    }
+    .item-holder-even .item-header {
+        flex-direction: row;
+        border-bottom: 4px solid var(--accent-color);
+    }
+    .item-holder-odd .item-header {
+        border-bottom: 4px solid var(--compliment-color);
+    }
+    .more-info{
+        padding: 10px 10px;
+    }  
+    
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+  }

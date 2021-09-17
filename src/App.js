@@ -3,7 +3,15 @@ import {Timeline} from './components/Timeline';
 
 function App() {
   return (
-    <Timeline />
+    <>
+      <header className="main-header">
+        <h1 className="main-title">Prima Assicurazioni</h1>
+        <h2 className="main-subtitle">React Timeline</h2>
+      </header>
+      <main>
+        <Timeline />
+      </main>
+    </>
   );
 }
 
