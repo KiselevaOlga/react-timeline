@@ -1,3 +1,12 @@
+# React Timeline created by Olga Kiseleva
+
+1. Clone repository to your local machine
+2. In the project directory, you need to run `npm install` to create node_modules
+3. After creating node_modules, run `npm start`
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
