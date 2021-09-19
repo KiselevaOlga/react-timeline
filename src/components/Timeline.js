@@ -4,7 +4,7 @@ import {TimelineItem} from './TimelineItem';
 import './Timeline.css';
 import getData from '../helpers/getData';
 
-// oddity varible helps to keep logic, so our items on the same place on right or left
+// oddity varible helps to keep logic for classnames, so our items stay on the same place on right or left
 let oddity = true;
 
 
@@ -36,7 +36,7 @@ export const Timeline = () => {
                 setTimeout(() => {
                     addElement(listResponse[i])
                 // each new element will be shown after 20 seconds after previous element    
-                }, 1000*i);                      
+                }, 20000*i);                      
             }
         })
         .catch((err) => setError(err))
@@ -44,11 +44,18 @@ export const Timeline = () => {
     },[])   
 
     if (loading) {
-        return <div>Loading</div>;
+        return (
+        <div className="load-container">
+            <h2>Loading</h2>
+        </div>);
     }
 
     if (error) {
-        return <div>{ error }</div>; // put image 'sorry something went wrong'
+        return(
+        <div className="error-container">
+            <h2>Oops, something went wrong</h2>
+            <p>{ error }</p>
+        </div>) ; 
     }
 
     return (

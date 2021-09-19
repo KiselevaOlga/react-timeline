@@ -11,6 +11,9 @@ function App() {
       <main>
         <Timeline />
       </main>
+      <footer className="main-footer">
+        <h5>Created by Olga Kiseleva</h5>
+      </footer>
     </>
   );
 }

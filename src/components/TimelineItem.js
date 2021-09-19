@@ -1,11 +1,11 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-// import oddity from './Timeline';
 
 export const TimelineItem = ({data, oddity}) => {
     const {title, date, description} = data;
     const [myClassName, setClassName] = useState("");
 
+    // sets different className for styling items in two columns  
     useEffect(()=>{
         if(oddity){
             setClassName("item-holder-odd")
@@ -13,6 +13,7 @@ export const TimelineItem = ({data, oddity}) => {
             setClassName("item-holder-even")
         }
     }, []);
+    
     return (
         <article className={`item-holder ${myClassName}`}>
             <header className="item-header">
