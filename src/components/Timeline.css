@@ -229,6 +229,17 @@ main{
     text-decoration: underline;
 }
 /* timeline item info */
+
+/* modal */
+
+.item-modal{
+    width: 500px;
+    height: 300px;
+    background-color: grey;
+    margin: auto;
+}
+
+/* modal */
 /* TIMELINE ITEM CONTAINER */
 
 

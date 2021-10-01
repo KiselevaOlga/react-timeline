@@ -1,16 +1,17 @@
 import React from 'react';
-import { useState, useEffect} from 'react';
+import { useState, useEffect, useRef} from 'react';
 import {TimelineItem} from './TimelineItem';
 import './Timeline.css';
 import getData from '../helpers/getData';
 
 // oddity varible helps to keep logic for classnames, so our items stay on the same place on right or left
-let oddity = true;
+// let oddity = true;
 
 
 export const Timeline = () => {
     // initialize state to iterate over items in return 
-    const [items, setItems] = useState([]);      
+    const [items, setItems] = useState([]);
+    const oddity = useRef(true);      
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(true);
     
@@ -23,7 +24,8 @@ export const Timeline = () => {
                 newItemsList.pop();
             }
             // each time oddity changes to pass different classNames in TimelineItem
-            oddity = !oddity;
+            // oddity = !oddity;
+            oddity.current = !oddity.current;
             // update state by appending new item to the head of the list
             return [item, ...newItemsList]     
         });
@@ -36,7 +38,7 @@ export const Timeline = () => {
                 setTimeout(() => {
                     addElement(listResponse[i])
                 // each new element will be shown after 20 seconds after previous element    
-                }, 20000*i);                      
+                }, 2000*i);                      
             }
         })
         .catch((err) => setError(err))
@@ -62,7 +64,7 @@ export const Timeline = () => {
         <section className="main-container">
             {items && items.map((item) => {  
                 // if we iterate over the list in react we need to pass unique key to each component
-                return (<TimelineItem data={item} oddity={oddity} key={item.title}/>)
+                return (<TimelineItem data={item} oddity={oddity.current} key={item.title}/>)
             })}
         </section>
     )

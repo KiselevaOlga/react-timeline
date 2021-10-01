@@ -1,9 +1,13 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import Modal from '@mui/material/Modal';
 
 export const TimelineItem = ({data, oddity}) => {
     const {title, date, description} = data;
     const [myClassName, setClassName] = useState("");
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
     // sets different className for styling items in two columns  
     useEffect(()=>{
@@ -23,7 +27,16 @@ export const TimelineItem = ({data, oddity}) => {
             <div className="item-info">
                 <p className="item-description">{description}</p>
             </div>
-            <a href='#' className="more-info"><span>Read more</span></a>
+            <a href='#' className="more-info" onClick={handleOpen}><span>Read more</span></a>
+            <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+                className = "item-modal"
+            >
+                <p>{description}</p>
+            </Modal>
         </article>
     )
 }

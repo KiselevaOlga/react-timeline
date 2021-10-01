@@ -10,6 +10,7 @@ function App() {
       </header>
       <main>
         <Timeline />
+        <Timeline />
       </main>
       <footer className="main-footer">
         <h5>Created by Olga Kiseleva</h5>
