@@ -5,11 +5,10 @@ function App() {
   return (
     <>
       <header className="main-header">
-        <h1 className="main-title">Prima Assicurazioni</h1>
+        <h1 className="main-title">Lorem Ipsum</h1>
         <h2 className="main-subtitle">React Timeline</h2>
       </header>
       <main>
-        <Timeline />
         <Timeline />
       </main>
       <footer className="main-footer">

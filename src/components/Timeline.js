@@ -4,13 +4,11 @@ import {TimelineItem} from './TimelineItem';
 import './Timeline.css';
 import getData from '../helpers/getData';
 
-// oddity varible helps to keep logic for classnames, so our items stay on the same place on right or left
-// let oddity = true;
-
 
 export const Timeline = () => {
     // initialize state to iterate over items in return 
     const [items, setItems] = useState([]);
+    // oddity varible helps to keep logic for classnames, so our items stay on the same place on right or left
     const oddity = useRef(true);      
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(true);
